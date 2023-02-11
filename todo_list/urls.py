@@ -1,6 +1,6 @@
 from django.urls import path
 
-from todo.views import (
+from todo_list.views import (
     TagListView,
     TaskListView,
     TaskUpdateView,
