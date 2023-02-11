@@ -11,7 +11,7 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self) -> Any:
-        return reverse("todo:tag-list")
+        return reverse("todo_list:tag-list")
 
 
 class Task(models.Model):
@@ -25,4 +25,4 @@ class Task(models.Model):
         ordering = ["is_done", "-datetime"]
 
     def get_absolute_url(self) -> Any:
-        return reverse("todo:task-list")
+        return reverse("todo_list:task-list")
