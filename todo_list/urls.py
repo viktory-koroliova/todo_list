@@ -38,4 +38,4 @@ urlpatterns = [
 ]
 
 
-app_name = "todo"
+app_name = "todo_list"
