@@ -7,19 +7,24 @@
     <a class="btn btn-success create" href="{% url 'todo_list:task-create' %}">Add task</a>
   </h1>
   <br>
+
   {% if task_list %}
   {% for task in task_list %}
+    <h5> {{ task.content }} </h5>
 
-    <h5>
-      {{ task.content }}
-      {% if task.is_done%}
-        <span style="color: green">Done</span>
-        <a class="change-status btn btn-secondary" href="{% url 'todo_list:change-status' pk=task.id%}">Undo</a>
+    <form action="{% url 'todo_list:change-status' pk=task.id %}" method="post" novalidate>
+      {% csrf_token %}
+
+        {% if task.is_done %}
+          <span style="color: forestgreen">Done</span>
+          <button class="change-status btn btn-secondary" type="submit">Undo</button>
+
         {% else %}
-        <span style="color: red">Not done</span>
-        <a class="change-status btn btn-primary" href="{% url 'todo_list:change-status' pk=task.id%}">Complete</a>
-      {% endif %}
-      </h5>
+          <span style="color: red">Not done</span>
+          <button class="change-status btn btn-primary" type="submit">Complete</button>
+
+        {% endif %}
+      </form>
 
     <b>Created at: </b>{{ task.datetime }}<br>
 
