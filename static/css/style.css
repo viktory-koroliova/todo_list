@@ -1,0 +1,15 @@
+body {
+    margin: 20px;
+}
+
+.create {
+    margin-left: 20px;
+}
+
+.change-status {
+    float: right;
+}
+
+p {
+    margin-bottom: 5px;
+}
